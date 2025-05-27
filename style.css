@@ -1,0 +1,407 @@
+/* ================================
+  🌐 Root & Reset
+================================ */
+:root {
+  --neutral-900: hsl(227, 75%, 14%);
+  --neutral-800: hsl(226, 25%, 17%);
+  --neutral-700: hsl(225, 23%, 24%);
+  --neutral-600: hsl(226, 11%, 37%);
+  --neutral-300: hsl(0, 0%, 78%);
+  --neutral-200: hsl(217, 61%, 90%);
+  --neutral-100: hsl(0, 0%, 93%);
+  --neutral-0: hsl(200, 60%, 99%);
+
+  --red-400: hsl(3, 86%, 64%);
+  --red-500: hsl(3, 71%, 56%);
+  --red-700: hsl(3, 77%, 44%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans", sans-serif;
+}
+
+body {
+  width: 100%;
+  min-height: 100dvh;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--neutral-800);
+  background: linear-gradient(180deg, #ebf2fc 0%, #eef8f9 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+body.dark {
+  color: var(--neutral-100);
+  background: linear-gradient(180deg, #040918 0%, #091540 100%);
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  user-select: none;
+}
+
+/* ================================
+  🧭 Layout Containers
+================================ */
+header,
+main,
+footer {
+  width: 90%;
+  max-width: 1120px;
+  margin-inline: auto;
+}
+
+header {
+  margin-top: 1rem;
+}
+
+main {
+  flex: 1;
+  margin-block: 2rem;
+}
+
+footer {
+  margin-block: 2rem 1rem;
+  text-align: center;
+}
+
+/* ================================
+  🎯 Header
+================================ */
+.header-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.8rem;
+  background-color: var(--neutral-0);
+  color: var(--neutral-900);
+  border-radius: 0.5rem;
+  box-shadow: rgba(60, 64, 67, 0.1) 0px 1px 2px,
+    rgba(60, 64, 67, 0.05) 0px 1px 3px 1px;
+}
+
+body.dark .header-container {
+  background-color: var(--neutral-800);
+  color: var(--neutral-0);
+}
+
+.logo-link svg {
+  width: 150px;
+  color: currentColor;
+}
+
+/* ================================
+  🌘 Theme Toggle
+================================ */
+.theme-toggle-button {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--neutral-100);
+  overflow: hidden;
+  transition: background-color 0.3s;
+}
+
+.theme-toggle-button:hover {
+  background-color: var(--neutral-300);
+}
+
+.theme-toggle-button:focus {
+  outline: 2px solid var(--red-400);
+  outline-offset: 2px;
+}
+
+body.dark .theme-toggle-button {
+  background-color: var(--neutral-700);
+}
+
+body.dark .theme-toggle-button:hover {
+  background-color: var(--neutral-600);
+}
+
+.theme-toggle {
+  position: relative;
+  width: 50%;
+  height: 50%;
+}
+
+.theme-toggle-button .icon-moon,
+.theme-toggle-button .icon-sun {
+  position: absolute;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  transition: 0.3s;
+}
+
+.icon-moon {
+  top: 0;
+  opacity: 1;
+}
+
+.theme-toggle-button.dark .icon-moon {
+  top: -120%;
+  opacity: 0;
+}
+
+.icon-sun {
+  top: -120%;
+  opacity: 0;
+}
+
+.theme-toggle-button.dark .icon-sun {
+  top: 0;
+  opacity: 1;
+}
+
+/* ================================
+  🔘 Filter Buttons
+================================ */
+.filter-buttons {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.filter-button {
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  font-size: inherit;
+  border: 2px solid var(--neutral-300);
+  border-radius: 100px;
+  background-color: var(--neutral-0);
+  transition: 0.3s;
+}
+
+.filter-button:hover {
+  opacity: 0.6;
+}
+
+.filter-button:focus,
+.filter-button.active:focus {
+  outline: 2px solid var(--red-400);
+  outline-offset: 2px;
+}
+
+.filter-button.active {
+  background-color: var(--red-700);
+  color: var(--neutral-0);
+  border-color: transparent;
+}
+
+.filter-button.active:hover {
+  opacity: 0.8;
+}
+
+body.dark .filter-button {
+  background-color: var(--neutral-800);
+  color: var(--neutral-300);
+  border-color: var(--neutral-700);
+}
+
+body.dark .filter-button:hover {
+  background-color: var(--neutral-600);
+  opacity: 1;
+}
+
+body.dark .filter-button.active {
+  background-color: var(--red-500);
+  color: var(--neutral-900);
+  border-color: transparent;
+}
+
+body.dark .filter-button.active:hover {
+  background-color: var(--red-700);
+  opacity: 1;
+}
+
+/* ================================
+  🧩 Extension Card
+================================ */
+.extensions-container {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.extension-card {
+  padding: 1rem;
+  background-color: var(--neutral-0);
+  border: 2px solid transparent;
+  border-radius: 1rem;
+  box-shadow: rgba(60, 64, 67, 0.1) 0px 1px 2px,
+    rgba(60, 64, 67, 0.05) 0px 1px 3px 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+body.dark .extension-card {
+  background-color: var(--neutral-800);
+  border-color: var(--neutral-700);
+  box-shadow: none;
+}
+
+.extension-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.extension-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+body.dark .extension-desc {
+  color: var(--neutral-300);
+}
+
+.extension-actions {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ================================
+  ❌ Remove Button
+================================ */
+.remove-button {
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  font-size: inherit;
+  border-radius: 100px;
+  background-color: var(--neutral-0);
+  border: 2px solid var(--neutral-300);
+  transition: 0.3s;
+}
+
+.remove-button:hover {
+  border-color: transparent;
+  background-color: var(--red-700);
+  color: var(--neutral-0);
+}
+
+.remove-button:focus {
+  outline: 2px solid var(--red-400);
+  outline-offset: 2px;
+}
+
+body.dark .remove-button {
+  background-color: var(--neutral-800);
+  color: inherit;
+  border-color: var(--neutral-600);
+}
+
+body.dark .remove-button:hover {
+  background-color: var(--red-700);
+}
+
+/* ================================
+  🎚️ Toggle Switch
+================================ */
+.toggle-button {
+  width: 44px;
+  height: 24px;
+  position: relative;
+  border: none;
+  border-radius: 100px;
+  background-color: var(--neutral-300);
+  transition: background-color 0.3s;
+}
+
+.toggle-button:focus {
+  outline: 2px solid var(--red-400);
+  outline-offset: 2px;
+}
+
+.toggle-button.active {
+  background-color: var(--red-700);
+}
+
+.toggle-button.active:hover {
+  background-color: var(--red-500);
+}
+
+body.dark .toggle-button {
+  background-color: var(--neutral-600);
+}
+
+body.dark .toggle-button.active {
+  background-color: var(--red-500);
+}
+
+body.dark .toggle-button.active:hover {
+  background-color: var(--red-700);
+}
+
+.slider {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  background-color: var(--neutral-0);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.toggle-button.active .slider {
+  left: 22px;
+}
+
+/* ================================
+  🏷️ Titles
+================================ */
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* ================================
+  @ Media Querys
+================================ */
+@media (min-width: 600px) {
+  .filter-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .filter-button {
+    padding: 0.4rem 1rem;
+  }
+
+  .extensions-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .extensions-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
