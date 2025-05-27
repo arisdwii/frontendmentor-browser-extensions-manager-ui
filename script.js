@@ -45,25 +45,25 @@ function renderExtensions(data) {
 
   data.forEach((item) => {
     extensionsContainer.innerHTML += `
-      <article class="extension-card">
+    <article class="extension-card">
         <div class="extension-info">
           <img src="${item.logo}" alt="${
       item.name
-    }" class="img-extension-logo" draggable="false">
-          <div class="text-extension">
-            <h3 class="title-extension">${item.name}</h3>
-            <p class="desc-extension">${item.description}</p>
+    }" class="extension-logo" draggable="false">
+          <div class="extension-text">
+            <h3 class="extension-title">${item.name}</h3>
+            <p class="extension-desc">${item.description}</p>
           </div>
         </div>
 
-        <div class="actions-extension">
-          <button type="button" class="btn-remove" data-id="${
+        <div class="extension-actions">
+          <button type="button" class="remove-button" data-id="${
             item.id
           }">Remove</button>
-          <button type="button" class="btn-toggle ${
+          <button type="button" class="toggle-button ${
             item.isActive ? "active" : ""
           }" aria-label="Toggle extension" data-id="${item.id}">
-            <span class="slider-toggle"></span>
+            <span class="slider"></span>
           </button>
         </div>
       </article>
