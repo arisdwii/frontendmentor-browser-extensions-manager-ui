@@ -45,7 +45,7 @@ function renderExtensions(data) {
 
   data.forEach((item) => {
     extensionsContainer.innerHTML += `
-      <article class="card-extension">
+      <article class="extension-card">
         <div class="extension-info">
           <img src="${item.logo}" alt="${
       item.name
