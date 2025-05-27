@@ -88,7 +88,7 @@ btnFilters.forEach((btn) => {
 
 // Setup event listeners for all remove buttons
 function setupRemoveButtons() {
-  const removeButtons = document.querySelectorAll(".btn-remove");
+  const removeButtons = document.querySelectorAll(".remove-button");
 
   removeButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -105,7 +105,7 @@ function setupRemoveButtons() {
 
 // Setup event listeners for all toggle buttons
 function setupToggleButtons() {
-  const toggleButtons = document.querySelectorAll(".btn-toggle");
+  const toggleButtons = document.querySelectorAll(".toggle-button");
 
   toggleButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
