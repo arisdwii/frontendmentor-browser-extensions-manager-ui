@@ -1,4 +1,4 @@
-# Frontend Mentor - Browser extensions manager UI
+# Frontend Mentor - Browser extensions manager U
 
 ![Design preview for the Browser extensions manager UI coding challenge](./design/preview.jpg)
 
